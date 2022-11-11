@@ -12,7 +12,9 @@
         public RawImage QRCode;
         public SettingsTemplate mozartSettings;
         public string SessionToken = "";
-
+        private string loginToken = "";
+        public int maxRetry = 90;
+        public float timeBetweenRetry = 1f;
         public delegate void LOGIN_COMPLETE(string token);
         public event LOGIN_COMPLETE LoginComplete = null;
         private enum LOGIN_STATE
@@ -31,7 +33,18 @@
             state = LOGIN_STATE.WAITING_FOR_LOGIN;
             LoginButton.enabled = false;
             authID = Guid.NewGuid().ToString();
-            string uri = "https://mozart.xyz/login/request?id=" + authID + "&p=" + Application.platform;
+            StartCoroutine(GetLoginToken());
+        }
+
+        IEnumerator GetLoginToken()
+        {
+            var request = UnityWebRequest.Get("https://mozart.xyz/login");
+
+            // Wait for the response and then get our data
+            yield return request.SendWebRequest();
+            var data = request.downloadHandler.text;
+            loginToken = data;
+            string uri = "https://mozart.xyz/oauth-ui?secret=" + loginToken + "&p=" + Application.platform;
             if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
             {
                 Application.OpenURL(uri);
@@ -51,13 +64,13 @@
             while (state == LOGIN_STATE.WAITING_FOR_LOGIN)
             {
                 tryCount++;
-                if (tryCount > 90)
+                if (tryCount > maxRetry)
                 {
                     state = LOGIN_STATE.LOGIN_TIMEOUT;
                     QRCode.gameObject.SetActive(false);
                 }
-                yield return new WaitForSeconds(1f);
-                var request = UnityWebRequest.Get("https://mozart.xyz/validate?id=" + authID);
+                yield return new WaitForSeconds(timeBetweenRetry);
+                var request = UnityWebRequest.Get("https://mozart.xyz/auth?secret=" + loginToken);
 
                 // Wait for the response and then get our data
                 yield return request.SendWebRequest();
