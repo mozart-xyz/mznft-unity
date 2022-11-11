@@ -1015,7 +1015,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 4517347290967296821}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.51666176
+  m_Size: 0.59120136
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1225,7 +1225,7 @@ MonoBehaviour:
   m_ConstraintCount: 2
   matchContentWidth: 0
   cellPerRow: 5
-  cacheSize: 25
+  cacheSize: 50
   scrollRect: {fileID: 4517347290570618574}
   horizontalAlignment: 0
 --- !u!114 &4517347290311640373
@@ -1845,6 +1845,7 @@ GameObject:
   - component: {fileID: 4517347290776144719}
   - component: {fileID: 4517347290776144704}
   - component: {fileID: 4517347290776144718}
+  - component: {fileID: 6019607682354884087}
   m_Layer: 5
   m_Name: MozartInventoryWidget
   m_TagString: Untagged
@@ -1911,6 +1912,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &6019607682354884087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4517347290776144716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6deef85f38eea4bdb8c7c1c9f7ce36a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4517347290795008779
 GameObject:
   m_ObjectHideFlags: 0

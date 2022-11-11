@@ -6,10 +6,11 @@ namespace UnlimitedScrollUI.Example {
         public GameObject cell;
         public bool autoGenerate;
         public int totalCount = 33;
-
+        
         private IUnlimitedScroller unlimitedScroller;
 
         public void Generate() {
+            unlimitedScroller.Clear();
             unlimitedScroller.Generate(cell, totalCount, (index, iCell) => {
                 var regularCell = iCell as RegularCell;
                 if (regularCell != null) regularCell.onGenerated?.Invoke(index);

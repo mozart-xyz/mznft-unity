@@ -97,5 +97,7 @@ namespace UnlimitedScrollUI
         /// Clear all cached cells. This will not change the cache size.
         /// </summary>
         void ClearCache();
+
+        GameObject GetCell(int index);
     }
 }

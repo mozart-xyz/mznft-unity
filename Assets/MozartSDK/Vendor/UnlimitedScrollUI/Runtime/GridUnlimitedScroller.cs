@@ -528,5 +528,10 @@ namespace UnlimitedScrollUI {
                 currentLastRow = LastRow;
             }
         }
+
+        public GameObject GetCell(int index)
+        {
+            return currentCells[index].go;
+        }
     }
 }
