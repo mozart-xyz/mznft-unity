@@ -23,6 +23,7 @@
         {
             inventoryController = inventory;
             cellData = data;
+            SetupClickHandler();
             Redraw();
         }
 
@@ -30,12 +31,11 @@
         {
             SetImage(cellData.image);
             SetText(cellData.name);
-            SetupClickHandler();
         }
 
         public void OnDestroy()
         {
-            GetComponent<Button>().onClick.RemoveListener(CellClickHandler);
+            selection.onValueChanged.RemoveListener(CellClickHandler);
         }
 
         private void SetImage(string url)
@@ -44,15 +44,14 @@
             StartCoroutine(GetTexture(url));
         }
 
-        private void CellClickHandler()
+        private void CellClickHandler(bool on)
         {
-            selection.isOn = true;
-            inventoryController.CellClicked(this);
+            if(on) inventoryController.CellClicked(this);
         }
 
         private void SetupClickHandler()
         {
-            GetComponent<Button>().onClick.AddListener(CellClickHandler);
+            selection.onValueChanged.AddListener(CellClickHandler);
         }
 
         IEnumerator GetTexture(string url)

@@ -4,11 +4,16 @@
     using System.Collections;
     using System.Collections.Generic;
     using UnityEngine;
+    using UnityEngine.Events;
 
     public class MozartInventoryController : MonoBehaviour
     {
         public List<NFTItem> items = new List<NFTItem>();
         private List<NFTGridCellController> uiCells = new List<NFTGridCellController>();
+
+        [Serializable]
+        public class GridCellClickEvent : UnityEvent<NFTItem> { }
+        public GridCellClickEvent onItemCellClicked;
         // Start is called before the first frame update
         void Start()
         {
@@ -27,15 +32,9 @@
             uiCells = cells;
         }
 
-        // Update is called once per frame
-        void Update()
+        public void CellClicked(NFTGridCellController cell)
         {
-        
-        }
-
-        public void CellClicked(NFTGridCellController nFTGridCellController)
-        {
-           
+            if (onItemCellClicked != null) onItemCellClicked.Invoke(cell.cellData);
         }
     }
 }
