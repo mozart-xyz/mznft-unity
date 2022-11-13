@@ -428,7 +428,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 4517347290967296821}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.59120136
+  m_Size: 0.53785443
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -728,6 +728,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  scroller: {fileID: 7211406665928445517}
 --- !u!1 &4517347290852435124
 GameObject:
   m_ObjectHideFlags: 0

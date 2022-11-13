@@ -28,12 +28,13 @@
         public string status;
     }
 
-    public class MozartSDKLoginButton : MonoBehaviour
+    public class MozartSDKLoginButton : MozartBehaviorBase
     {
         private const string AUTH_URL_BASE = "https://staging-api-ij1y.onrender.com/v1/auth";
         public Button LoginButton;
         public RawImage QRCode;
         public SettingsTemplate mozartSettings;
+
         public string SessionToken = "";
         public string loginToken = "";
         public int maxRetry = 90;
@@ -68,7 +69,7 @@
             MozartOAUTHRequest response = JsonUtility.FromJson<MozartOAUTHRequest>(data);
             loginToken = response.oauthState;
             string uri = response.googleUrl;
-            Debug.LogWarning("GOOGLE URL:" + uri);
+            //Debug.LogWarning("GOOGLE URL:" + uri);
             if (enableQRCodeAuthentication == false ||
                 Application.platform == RuntimePlatform.Android ||
                 Application.platform == RuntimePlatform.IPhonePlayer)
@@ -114,6 +115,10 @@
                     state = LOGIN_STATE.LOGIN_SUCCESS;
                     LoginButton.enabled = false;
                     QRCode.gameObject.SetActive(false);
+                    base.GetManager().userData.email = status.email;
+                    base.GetManager().SetSessionToken(SessionToken);
+                   
+                
                     if (LoginComplete != null) LoginComplete(SessionToken);
                     //Debug.Log("Login Succeessful " + status.jwtToken);
                 }

@@ -5,7 +5,7 @@
     using TMPro;
     using UnityEngine;
 
-    public class MozartNFTInfoPanelController : MonoBehaviour
+    public class MozartNFTInfoPanelController : MozartBehaviorBase
     {
         public NFTItem currentItem;
         public TextMeshProUGUI nameText;
