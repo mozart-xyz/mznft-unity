@@ -69,7 +69,7 @@
             MozartOAUTHRequest response = JsonUtility.FromJson<MozartOAUTHRequest>(data);
             loginToken = response.oauthState;
             string uri = response.googleUrl;
-            //Debug.LogWarning("GOOGLE URL:" + uri);
+            Debug.LogWarning("GOOGLE URL:" + uri);
             if (enableQRCodeAuthentication == false ||
                 Application.platform == RuntimePlatform.Android ||
                 Application.platform == RuntimePlatform.IPhonePlayer)
@@ -89,8 +89,8 @@
         {
             int tryCount = 0;
             string oauthURL = AUTH_URL_BASE + "/login_status?oauthState=" + loginToken;
-            //Debug.Log("OAUTH URL::" + oauthURL);
-            //Debug.Log("Token:" + loginToken);
+            Debug.Log("OAUTH URL::" + oauthURL);
+            Debug.Log("Token:" + loginToken);
             while (state == LOGIN_STATE.WAITING_FOR_LOGIN)
             {
                 tryCount++;
@@ -107,9 +107,9 @@
                 // Wait for the response and then get our data
                 yield return request.SendWebRequest();
                 var data = request.downloadHandler.text;
-                //Debug.Log("Response:" + data);
+                Debug.Log("Response:" + data);
                 MozartOAUTHState status = JsonUtility.FromJson<MozartOAUTHState>(data);
-                if(status.status == "Ok")
+                if(status.status.ToLower() == "ok")
                 {
                     SessionToken = status.jwtToken;
                     state = LOGIN_STATE.LOGIN_SUCCESS;
@@ -120,7 +120,7 @@
                    
                 
                     if (LoginComplete != null) LoginComplete(SessionToken);
-                    //Debug.Log("Login Succeessful " + status.jwtToken);
+                    Debug.Log("Login Succeessful " + status.jwtToken);
                 }
 
             }

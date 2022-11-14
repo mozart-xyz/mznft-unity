@@ -1977,6 +1977,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MozartLoginWidget
       objectReference: {fileID: 0}
+    - target: {fileID: 6205000521026687013, guid: c5b1167a501824602b66c4dbdf9e5975,
+        type: 3}
+      propertyPath: timeBetweenRetry
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5b1167a501824602b66c4dbdf9e5975, type: 3}
 --- !u!114 &7648580539047208520 stripped
