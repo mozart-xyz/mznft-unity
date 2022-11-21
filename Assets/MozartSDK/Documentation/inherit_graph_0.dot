@@ -1,0 +1,13 @@
+digraph "Graphical Class Hierarchy"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node0 [label="MonoBehaviour",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
+  Node0 -> Node1 [dir="back",color="steelblue1",style="solid"];
+  Node1 [label="Mozart.MozartManager",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_mozart_1_1_mozart_manager.html",tooltip="The MozartManager is the brain of the entire Mozart system. You should create one of these when your ..."];
+  Node0 -> Node2 [dir="back",color="steelblue1",style="solid"];
+  Node2 [label="Mozart.WebServices",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_mozart_1_1_web_services.html",tooltip=" "];
+}
