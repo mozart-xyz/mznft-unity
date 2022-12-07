@@ -514,7 +514,7 @@ MonoBehaviour:
   cell: {fileID: 3798934600628987672, guid: 074c0ce5b3ed30946bf700c01b8a0cc7, type: 3}
   autoGenerate: 1
   totalCount: 33
-  inventoryController: {fileID: 3329202144663047291}
+  inventoryController: {fileID: 0}
   toggleGroup: {fileID: 0}
 --- !u!1 &4830837997331896131
 GameObject:
@@ -709,7 +709,7 @@ GameObject:
   - component: {fileID: 4830837997528984259}
   - component: {fileID: 4830837997528984268}
   - component: {fileID: 4830837997528984258}
-  - component: {fileID: 3329202144663047291}
+  - component: {fileID: 528827326}
   m_Layer: 5
   m_Name: MozartStoreWidget
   m_TagString: Untagged
@@ -724,7 +724,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4830837997528984256}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -776,7 +776,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &3329202144663047291
+--- !u!114 &528827326
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -785,24 +785,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 4830837997528984256}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6deef85f38eea4bdb8c7c1c9f7ce36a7, type: 3}
+  m_Script: {fileID: 11500000, guid: 90ef66ac0197c4b9fbef60ab77a44f9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   onItemCellClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3329202144663047291}
-        m_MethodName: CellClicked
-        m_Mode: 2
+      - m_Target: {fileID: 6643484592022364350}
+        m_MethodName: SetData
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: Mozart.NFTGridCellController, Assembly-CSharp
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  scroller: {fileID: 1850507595944112065}
+  scroller: {fileID: 0}
 --- !u!1 &4830837997587957048
 GameObject:
   m_ObjectHideFlags: 0
@@ -1203,3 +1203,15 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 6595983230538245079}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6643484592022364350 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 557256427516478313, guid: 481c9338e1f2e4b88833793c4ffa2719,
+    type: 3}
+  m_PrefabInstance: {fileID: 6595983230538245079}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99d0da20be4074aec8558a8a9f8cf55b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

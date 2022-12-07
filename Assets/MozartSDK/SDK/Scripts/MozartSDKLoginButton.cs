@@ -36,7 +36,7 @@
 
     /// <summary>
     /// Turnkey OAUTH login button for Mozart.  It is best to drag and drop the
-    /// prefab to use this instead of using it directly.
+    /// prefab to use this instead of using it directly. curl -H "Authorization: Bearer $token" https://staging-api-ij1y.onrender.com/v1/client/me?gameId=9mAc1yrUArR
     /// </summary>
     public class MozartSDKLoginButton : MozartBehaviorBase
     {
@@ -92,7 +92,7 @@
 
         IEnumerator GetLoginToken()
         {
-            var request = UnityWebRequest.Get(AUTH_URL_BASE + "/login");
+            var request = UnityWebRequest.Get(AUTH_URL_BASE + "/login?gameId=" + mozartSettings.GameIdentifier);
 
             // Wait for the response and then get our data
             yield return request.SendWebRequest();
@@ -148,8 +148,6 @@
                     QRCode.gameObject.SetActive(false);
                     base.GetManager().userData.email = status.email;
                     base.GetManager().SetSessionToken(SessionToken);
-                   
-                
                     if (LoginComplete != null) LoginComplete(SessionToken);
                     Debug.Log("Login Succeessful " + status.jwtToken);
                 }

@@ -9,6 +9,7 @@
     public class MozartUser
     {
 
+        public MeResponse extraData;
         /*![string] NO DESCRIPTION, PLEASE ADD TO API.YAML*/
         public string id;
 

@@ -134,14 +134,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.0576906, g: 0.01601993, b: 0.3773585, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: d113a55ba80c44689bb3b34ea81dd09b, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -220,6 +220,10 @@ MonoBehaviour:
   QRCode: {fileID: 6205000520957937992}
   mozartSettings: {fileID: 11400000, guid: 336a0cb3d9475473f9797fc7923003f8, type: 2}
   SessionToken: 
+  loginToken: 
+  maxRetry: 90
+  timeBetweenRetry: 1
+  enableQRCodeAuthentication: 0
 --- !u!1 &6205000521708247295
 GameObject:
   m_ObjectHideFlags: 0
@@ -237,7 +241,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6205000521708247294
 RectTransform:
   m_ObjectHideFlags: 0

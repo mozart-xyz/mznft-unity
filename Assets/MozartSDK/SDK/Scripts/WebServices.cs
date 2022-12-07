@@ -10,8 +10,9 @@
 
     public class WebServices : MonoBehaviour
     {
-        public static string serverRoot = "https://api.mozart.xyz";
-
+        public static string serverRoot = "https://staging-api-ij1y.onrender.com";
+        public SettingsTemplate mozartSettings;
+        public MozartManager manager;
         public delegate void HandleError(MozartError error);
         public event HandleError HandleErrorEvent;
 
@@ -33,7 +34,11 @@
         private IEnumerator DoGetRequest<T>(string url, UnityAction<T> completeCallback, string method = "GET", WWWForm postVars = null)
         {
             UnityWebRequest www = null;
+            if (method == "GET") www = UnityWebRequest.Get(serverRoot + url);
+            if (method == "POST") www = UnityWebRequest.Post(serverRoot + url, postVars);
             www.timeout = 20;
+            string bearerToken = "Bearer " + manager.SessionToken;
+            www.SetRequestHeader("Authorization", bearerToken);
             yield return www.SendWebRequest();
 
             if (www.isNetworkError || www.isHttpError)

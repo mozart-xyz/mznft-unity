@@ -20,6 +20,7 @@
         public ToggleGroup toggleGroup;
         public void Generate()
         {
+            inventoryController.items = inventoryController.GetItems();
             if (!toggleGroup)
             {
                 toggleGroup = this.gameObject.AddComponent<ToggleGroup>();

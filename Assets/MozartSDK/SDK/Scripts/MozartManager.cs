@@ -23,11 +23,11 @@
         /// <summary>
         /// This is a list of items loaded from the store for this app
         /// </summary>
-        public List<NFTItem> storeItems;
+        public List<NFTItem> storeItems = new List<NFTItem>();
         /// <summary>
         /// This is a list of items the user actually has in their inventory for this app
         /// </summary>
-        public List<NFTItem> inventoryItems;
+        public List<NFTItem> inventoryItems = new List<NFTItem>();
         /// <summary>
         /// This is the users temporary session token, it will change every time they sign in with SSO
         /// </summary>
@@ -36,10 +36,14 @@
         /// This is user data specific to this user
         /// </summary>
         public MozartUser userData = new MozartUser();
+
         /// <summary>
         /// This is the web services helper for making web services calls in a generic way
         /// </summary>
         public WebServices webs;
+
+        public delegate void ON_USER_CHANGE();
+        public ON_USER_CHANGE onUserChangedEvent;
 
         public delegate void ON_LOGIN();
         /// <summary>
@@ -80,6 +84,14 @@
         void Start()
         {
             if (!instance) instance = this;
+            /*inventoryItems = new List<NFTItem>
+            {
+                new NFTItem{name="Ben", image="https://cdn.domestika.org/c_limit,dpr_1.0,f_auto,q_auto,w_820/v1542280317/content-items/002/609/007/ARMADURA-original.jpg?1542280317"},
+                new NFTItem{name="Jin", image="https://cdn.domestika.org/c_limit,dpr_1.0,f_auto,q_auto,w_820/v1544721542/content-items/002/665/263/3-B%25C3%2581RBARO-original.jpg?1544721542"},
+                new NFTItem{name="Oliver", image="https://cdn.domestika.org/c_limit,dpr_1.0,f_auto,q_auto,w_820/v1544721520/content-items/002/665/254/2-_ARQUERA-original.jpg?1544721520"},
+                new NFTItem{name="Saureen", image="https://cdn.domestika.org/c_limit,dpr_1.0,f_auto,q_auto,w_820/v1544718087/content-items/002/665/186/BRUJAtrad-original.jpg?1544718087"},
+                new NFTItem{name="Arman", image="https://cdn.domestika.org/c_limit,dpr_1.0,f_auto,q_auto,w_820/v1544721481/content-items/002/665/252/1-MAGO-original.jpg?1544721481"},
+            };*/
             UnityEngine.Object.DontDestroyOnLoad(this.gameObject);
         }
 
@@ -91,12 +103,21 @@
         public void SetSessionToken(string sessionToken)
         {
             SessionToken = sessionToken;
+            RequestUserData();
             if (onLoggedInEvent != null) onLoggedInEvent.Invoke();
         }
 
-        public void SetUserData()
+        /// <summary>
+        /// Requests additional user data like balances, nfts, and user info
+        /// The MozartSDKLoginButton has logic to automatically call this.
+        /// </summary>
+        public void RequestUserData()
         {
-
+            webs.GetRequest<MeResponse>("/v1/client/me?gameId=" + webs.mozartSettings.GameIdentifier, (MeResponse response) =>
+            {
+                userData.extraData = response;
+                if (onUserChangedEvent != null) onUserChangedEvent();
+            });
         }
 
         /// <summary>
@@ -114,7 +135,13 @@
         /// </summary>
         public void LoadInventory()
         {
-            //TODO: Hook up web services
+            if (userData.extraData == null) return;
+            inventoryItems.Clear();
+            foreach (Nft nft in userData.extraData.nfts)
+            {
+                NFTItem newItem = new NFTItem { name = nft.name, image = nft.imageUrl, description = nft.description };
+                inventoryItems.Add(newItem);
+            }
             if (onInventoryLoadedEvent != null) onInventoryLoadedEvent();
         }
 
@@ -123,8 +150,17 @@
         /// </summary>
         public void LoadStore()
         {
-            //TODO: Hook up web services
-            if (onStoreLoadedEvent != null) onStoreLoadedEvent();
+            // /v1/client/factory_items/for_sale
+            webs.GetRequest<List<ForSaleFactoryNft>>("/v1/client/factory_items/for_sale?gameId=" + webs.mozartSettings.GameIdentifier, (List<ForSaleFactoryNft> forSale) =>
+            {
+                storeItems.Clear();
+                foreach (ForSaleFactoryNft nft in forSale)
+                {
+                    NFTItem newItem = new NFTItem { name = nft.name, image = nft.imageUrl, price = nft.price, priceTokenName = nft.priceTokenName, priceTokenId = nft.priceTokenId };
+                    storeItems.Add(newItem);
+                }
+                if (onStoreLoadedEvent != null) onStoreLoadedEvent();
+            });
         }
     }
 
