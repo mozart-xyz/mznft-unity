@@ -29,7 +29,7 @@
         public virtual void DetailsChanged()
         {
             emailLabel.text = GetManager().userData.email;
-            loginStatusLabel.text = "Loggedin: " + GetManager().IsLoggedIn();
+            loginStatusLabel.text = "Signed In: " + GetManager().IsLoggedIn();
         }
     }
 }

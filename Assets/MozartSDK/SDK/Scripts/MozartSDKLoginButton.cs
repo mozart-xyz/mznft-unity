@@ -109,7 +109,7 @@
             }
             else
             {
-                Texture2D qrTex = QRCodeHelper.GetQRCode(uri, 8);
+                Texture2D qrTex = QRCodeHelper.GetQRCode(uri, 16, QRCodeGenerator.ECCLevel.H);
                 QRCode.texture = qrTex;
                 QRCode.gameObject.SetActive(true);
             }
