@@ -68,8 +68,6 @@
         void Start()
         {
             scroller = this.GetComponentInChildren<MozartInventoryScroller>();
-            //TODO:Add web request here to go load inventory
-
         }
 
         public void SetCells(List<NFTGridCellController> cells)

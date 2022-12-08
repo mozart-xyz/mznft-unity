@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MozartSampleSelector : MonoBehaviour
+public class MozartSampleSelector : MozartBehaviorBase
 {
     public GameObject login;
     public GameObject inventory;
@@ -19,7 +19,7 @@ public class MozartSampleSelector : MonoBehaviour
 
     public void InventoryClicked()
     {
-        Debug.Log("Show Inventory");
+        if(!GetManager().IsLoggedIn()) return;
         login.SetActive(false);
         inventory.SetActive(true);
         store.SetActive(false);
@@ -27,7 +27,7 @@ public class MozartSampleSelector : MonoBehaviour
 
     public void StoreClicked()
     {
-        Debug.Log("Show Store");
+        if(!GetManager().IsLoggedIn()) return;
         login.SetActive(false);
         inventory.SetActive(false);
         store.SetActive(true);

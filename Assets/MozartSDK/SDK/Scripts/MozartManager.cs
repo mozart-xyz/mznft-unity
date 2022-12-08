@@ -119,7 +119,6 @@
         public void BuyItem(string ItemTemplateID)
         {
             string postData = "{\"factoryListingId\":\"" + ItemTemplateID + "\"}";
-            Debug.Log("Sending Post Data:" + postData);
             webs.PostRequest<BuyResponse>("/v1/client/factory_items/buy", postData, (BuyResponse response) =>
             {
                 RequestUserData();

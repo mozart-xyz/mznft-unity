@@ -35,7 +35,7 @@
                 }
                 if(manager == null)
                 {
-                    Debug.LogError("MozartManager is not added to the scene, Mozart components will not function until one is found, please add the MozartManager prefab to your scene");
+                    manager.settings.Log("MozartManager is not added to the scene, Mozart components will not function until one is found, please add the MozartManager prefab to your scene");
                 }
             }
             return manager;

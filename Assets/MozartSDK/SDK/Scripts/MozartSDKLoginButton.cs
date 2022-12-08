@@ -40,7 +40,7 @@
     /// </summary>
     public class MozartSDKLoginButton : MozartBehaviorBase
     {
-        private const string AUTH_URL_BASE = "https://staging-api-ij1y.onrender.com/v1/auth";
+        private string AUTH_URL_BASE = "https://staging-api-ij1y.onrender.com/v1/auth";
         [SerializeField]
         private Button LoginButton;
         [SerializeField]
@@ -49,7 +49,6 @@
         /// This is where the MozartSettings file is linked to the button for API key
         /// </summary>
         public SettingsTemplate mozartSettings;
-
         public string SessionToken = "";
         public string loginToken = "";
         /// <summary>
@@ -77,6 +76,11 @@
             LOGIN_SUCCESS
         }
 
+        private void Awake()
+        {
+            AUTH_URL_BASE = mozartSettings.apiBaseUrl;
+        }
+
         private LOGIN_STATE state = LOGIN_STATE.WAITING_FOR_LOGIN;
 
         /// <summary>
@@ -100,7 +104,7 @@
             MozartOAUTHRequest response = JsonUtility.FromJson<MozartOAUTHRequest>(data);
             loginToken = response.oauthState;
             string uri = response.googleUrl;
-            Debug.LogWarning("GOOGLE URL:" + uri);
+            mozartSettings.Log("GOOGLE URL:" + uri);
             if (enableQRCodeAuthentication == false ||
                 Application.platform == RuntimePlatform.Android ||
                 Application.platform == RuntimePlatform.IPhonePlayer)
@@ -120,8 +124,8 @@
         {
             int tryCount = 0;
             string oauthURL = AUTH_URL_BASE + "/login_status?oauthState=" + loginToken;
-            Debug.Log("OAUTH URL::" + oauthURL);
-            Debug.Log("Token:" + loginToken);
+            mozartSettings.Log("OAUTH URL::" + oauthURL);
+            mozartSettings.Log("Token:" + loginToken);
             while (state == LOGIN_STATE.WAITING_FOR_LOGIN)
             {
                 tryCount++;
@@ -138,7 +142,7 @@
                 // Wait for the response and then get our data
                 yield return request.SendWebRequest();
                 var data = request.downloadHandler.text;
-                Debug.Log("Response:" + data);
+                mozartSettings.Log("Response:" + data);
                 MozartOAUTHState status = JsonUtility.FromJson<MozartOAUTHState>(data);
                 if(status.status.ToLower() == "ok")
                 {
@@ -149,7 +153,7 @@
                     base.GetManager().userData.email = status.email;
                     base.GetManager().SetSessionToken(SessionToken);
                     if (LoginComplete != null) LoginComplete(SessionToken);
-                    Debug.Log("Login Succeessful " + status.jwtToken);
+                    mozartSettings.Log("Login Succeessful " + status.jwtToken);
                 }
 
             }
