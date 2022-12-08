@@ -444,6 +444,7 @@ GameObject:
   - component: {fileID: 4830837997056091326}
   - component: {fileID: 4830837997056091327}
   - component: {fileID: 1850507595944112065}
+  - component: {fileID: 1613835800}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -514,8 +515,21 @@ MonoBehaviour:
   cell: {fileID: 3798934600628987672, guid: 074c0ce5b3ed30946bf700c01b8a0cc7, type: 3}
   autoGenerate: 1
   totalCount: 33
-  inventoryController: {fileID: 0}
-  toggleGroup: {fileID: 0}
+  inventoryController: {fileID: 528827326}
+  toggleGroup: {fileID: 1613835800}
+--- !u!114 &1613835800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4830837997056091324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fafe2cfe61f6974895a912c3755e8f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AllowSwitchOff: 0
 --- !u!1 &4830837997331896131
 GameObject:
   m_ObjectHideFlags: 0
@@ -578,7 +592,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0.8745098, g: 0.8, b: 1, a: 0.9843137}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -802,7 +816,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  scroller: {fileID: 0}
+  scroller: {fileID: 1850507595944112065}
 --- !u!1 &4830837997587957048
 GameObject:
   m_ObjectHideFlags: 0
@@ -935,6 +949,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2412330261407235713}
     m_Modifications:
+    - target: {fileID: 2306413595669541686, guid: 481c9338e1f2e4b88833793c4ffa2719,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3741879337553247394, guid: 481c9338e1f2e4b88833793c4ffa2719,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -1000,6 +1019,56 @@ PrefabInstance:
       propertyPath: m_Name
       value: MozartStoreInfoPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 4278895252892186844, guid: 481c9338e1f2e4b88833793c4ffa2719,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278895252892186844, guid: 481c9338e1f2e4b88833793c4ffa2719,
+        type: 3}
+      propertyPath: m_fontSizeMin
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278895252892186844, guid: 481c9338e1f2e4b88833793c4ffa2719,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278895252892186844, guid: 481c9338e1f2e4b88833793c4ffa2719,
+        type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4610660267468344277, guid: 481c9338e1f2e4b88833793c4ffa2719,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 4610660267468344277, guid: 481c9338e1f2e4b88833793c4ffa2719,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 4859722070819562184, guid: 481c9338e1f2e4b88833793c4ffa2719,
+        type: 3}
+      propertyPath: m_Padding.m_Top
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4859722070819562184, guid: 481c9338e1f2e4b88833793c4ffa2719,
+        type: 3}
+      propertyPath: m_Padding.m_Left
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4859722070819562184, guid: 481c9338e1f2e4b88833793c4ffa2719,
+        type: 3}
+      propertyPath: m_Padding.m_Right
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4859722070819562184, guid: 481c9338e1f2e4b88833793c4ffa2719,
+        type: 3}
+      propertyPath: m_Padding.m_Bottom
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 5194730168127442180, guid: 481c9338e1f2e4b88833793c4ffa2719,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -1060,6 +1129,17 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5627116351422255273, guid: 481c9338e1f2e4b88833793c4ffa2719,
+        type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5627116351422255273, guid: 481c9338e1f2e4b88833793c4ffa2719,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f46f751dca4d54762858f9e408bd388d,
+        type: 3}
     - target: {fileID: 6907448622699359160, guid: 481c9338e1f2e4b88833793c4ffa2719,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -1090,6 +1170,32 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7053385635976031520, guid: 481c9338e1f2e4b88833793c4ffa2719,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8632067672977193712, guid: 481c9338e1f2e4b88833793c4ffa2719,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8632067672977193712, guid: 481c9338e1f2e4b88833793c4ffa2719,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8632067672977193712, guid: 481c9338e1f2e4b88833793c4ffa2719,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8632067672977193712, guid: 481c9338e1f2e4b88833793c4ffa2719,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75,
+        type: 3}
     - target: {fileID: 9100912116735792653, guid: 481c9338e1f2e4b88833793c4ffa2719,
         type: 3}
       propertyPath: m_Pivot.x

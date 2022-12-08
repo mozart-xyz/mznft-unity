@@ -578,7 +578,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0.8745098, g: 0.8, b: 1, a: 0.9843137}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -650,7 +650,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4517347290776144716}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1040,10 +1040,70 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1931715151797410221, guid: 312ef8f1ba9334ce09173e17adda9651,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4061489395075454533, guid: 312ef8f1ba9334ce09173e17adda9651,
+        type: 3}
+      propertyPath: m_Padding.m_Top
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4061489395075454533, guid: 312ef8f1ba9334ce09173e17adda9651,
+        type: 3}
+      propertyPath: m_Padding.m_Left
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4061489395075454533, guid: 312ef8f1ba9334ce09173e17adda9651,
+        type: 3}
+      propertyPath: m_Padding.m_Right
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4061489395075454533, guid: 312ef8f1ba9334ce09173e17adda9651,
+        type: 3}
+      propertyPath: m_Padding.m_Bottom
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4633584855917005905, guid: 312ef8f1ba9334ce09173e17adda9651,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 4633584855917005905, guid: 312ef8f1ba9334ce09173e17adda9651,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 4633584855917005905, guid: 312ef8f1ba9334ce09173e17adda9651,
+        type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4755161166163089726, guid: 312ef8f1ba9334ce09173e17adda9651,
         type: 3}
       propertyPath: m_Name
       value: MozartNFTInfoPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4958506594814607192, guid: 312ef8f1ba9334ce09173e17adda9651,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 4958506594814607192, guid: 312ef8f1ba9334ce09173e17adda9651,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275350813211195051, guid: 312ef8f1ba9334ce09173e17adda9651,
+        type: 3}
+      propertyPath: m_fontSizeMin
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7065887556968650796, guid: 312ef8f1ba9334ce09173e17adda9651,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 312ef8f1ba9334ce09173e17adda9651, type: 3}

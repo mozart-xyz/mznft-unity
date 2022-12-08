@@ -11,6 +11,7 @@
         public string description = "";
         public string price = "";
         public string priceTokenId = "";
-        public string priceTokenName = "";   
+        public string priceTokenName = "";
+        public string itemTemplateId = "";
     }
 }

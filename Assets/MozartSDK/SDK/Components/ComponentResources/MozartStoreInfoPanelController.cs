@@ -9,11 +9,12 @@ public class MozartStoreInfoPanelController : MozartNFTInfoPanelController
         [SerializeField]
         public void BuySelectedItem()
         { 
-            base.GetManager().BuyItem(this.currentItem);
+            GetManager().BuyItem(this.currentItem.itemTemplateId);
         }
 
         public override void SetData(NFTItem item)
         {
+            currentItem = item;
             nameText.text = item.name;
             descriptionText.text = item.description;
         }

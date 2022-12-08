@@ -19,7 +19,7 @@
         /// By default you can extend MozartBehavior for your own classes and they will find the manager.
         /// </summary>
         public static MozartManager instance;
-
+        public SettingsTemplate settings;
         /// <summary>
         /// This is a list of items loaded from the store for this app
         /// </summary>
@@ -81,17 +81,9 @@
         }
 
         // Start is called before the first frame update
-        void Start()
+        void Awake()
         {
             if (!instance) instance = this;
-            /*inventoryItems = new List<NFTItem>
-            {
-                new NFTItem{name="Ben", image="https://cdn.domestika.org/c_limit,dpr_1.0,f_auto,q_auto,w_820/v1542280317/content-items/002/609/007/ARMADURA-original.jpg?1542280317"},
-                new NFTItem{name="Jin", image="https://cdn.domestika.org/c_limit,dpr_1.0,f_auto,q_auto,w_820/v1544721542/content-items/002/665/263/3-B%25C3%2581RBARO-original.jpg?1544721542"},
-                new NFTItem{name="Oliver", image="https://cdn.domestika.org/c_limit,dpr_1.0,f_auto,q_auto,w_820/v1544721520/content-items/002/665/254/2-_ARQUERA-original.jpg?1544721520"},
-                new NFTItem{name="Saureen", image="https://cdn.domestika.org/c_limit,dpr_1.0,f_auto,q_auto,w_820/v1544718087/content-items/002/665/186/BRUJAtrad-original.jpg?1544718087"},
-                new NFTItem{name="Arman", image="https://cdn.domestika.org/c_limit,dpr_1.0,f_auto,q_auto,w_820/v1544721481/content-items/002/665/252/1-MAGO-original.jpg?1544721481"},
-            };*/
             UnityEngine.Object.DontDestroyOnLoad(this.gameObject);
         }
 
@@ -124,10 +116,15 @@
         /// Buy a specific item from the store and give it to the user
         /// </summary>
         /// <param name="item"></param>
-        public void BuyItem(NFTItem item)
+        public void BuyItem(string ItemTemplateID)
         {
-            //TODO: Hook up web services
-            if (onPurchaseCompleteEvent != null) onPurchaseCompleteEvent();
+            string postData = "{\"factoryListingId\":\"" + ItemTemplateID + "\"}";
+            Debug.Log("Sending Post Data:" + postData);
+            webs.PostRequest<BuyResponse>("/v1/client/factory_items/buy", postData, (BuyResponse response) =>
+            {
+                RequestUserData();
+                if (onPurchaseCompleteEvent != null) onPurchaseCompleteEvent();
+            });
         }
 
         /// <summary>
@@ -156,7 +153,7 @@
                 storeItems.Clear();
                 foreach (ForSaleFactoryNft nft in forSale)
                 {
-                    NFTItem newItem = new NFTItem { name = nft.name, image = nft.imageUrl, price = nft.price, priceTokenName = nft.priceTokenName, priceTokenId = nft.priceTokenId };
+                    NFTItem newItem = new NFTItem { name = nft.name, image = nft.imageUrl, price = nft.price, priceTokenName = nft.priceTokenName, priceTokenId = nft.priceTokenId, itemTemplateId=nft.factoryListingId };
                     storeItems.Add(newItem);
                 }
                 if (onStoreLoadedEvent != null) onStoreLoadedEvent();

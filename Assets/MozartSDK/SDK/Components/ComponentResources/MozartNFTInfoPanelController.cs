@@ -18,6 +18,7 @@
         public TextMeshProUGUI imageText;
         public virtual void SetData(NFTItem item)
         {
+            currentItem = item;
             nameText.text = item.name;
             descriptionText.text = item.description;
             imageText.text = item.image;

@@ -4,6 +4,8 @@
     using Newtonsoft.Json.Serialization;
     using System;
     using System.Collections;
+    using System.Collections.Generic;
+    using System.Text;
     using UnityEngine;
     using UnityEngine.Events;
     using UnityEngine.Networking;
@@ -25,20 +27,31 @@
             StartCoroutine(DoGetRequest<T>(url, callback));
         }
 
-        public void PostRequest<T>(string url, WWWForm postVars, UnityAction<T> callback)
+        public void PostRequest<T>(string url, string postData, UnityAction<T> callback)
         {
-            StartCoroutine(DoGetRequest<T>(url, callback, "POST", postVars));
+            StartCoroutine(DoGetRequest<T>(url, callback, "POST", postData));
         }
 
 
-        private IEnumerator DoGetRequest<T>(string url, UnityAction<T> completeCallback, string method = "GET", WWWForm postVars = null)
+        private IEnumerator DoGetRequest<T>(string url, UnityAction<T> completeCallback, string method = "GET", string postData = null)
         {
             UnityWebRequest www = null;
             if (method == "GET") www = UnityWebRequest.Get(serverRoot + url);
-            if (method == "POST") www = UnityWebRequest.Post(serverRoot + url, postVars);
+            if (method == "POST")
+            {
+                www = new UnityWebRequest(serverRoot + url, "POST");
+                byte[] bodyRaw = Encoding.UTF8.GetBytes(postData);
+                UploadHandler handler = (UploadHandler)new UploadHandlerRaw(bodyRaw);
+                handler.contentType = "application/json";
+                www.uploadHandler = handler;
+                www.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
+            }
+            
             www.timeout = 20;
             string bearerToken = "Bearer " + manager.SessionToken;
             www.SetRequestHeader("Authorization", bearerToken);
+            www.SetRequestHeader("Content-Type", "application/json");
+            Debug.Log("Sent request:" + url);
             yield return www.SendWebRequest();
 
             if (www.isNetworkError || www.isHttpError)

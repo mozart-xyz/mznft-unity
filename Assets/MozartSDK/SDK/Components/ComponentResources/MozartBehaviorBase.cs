@@ -29,13 +29,13 @@
                 {
                     manager = Component.FindObjectOfType<MozartManager>();
                 }
-                if(manager == null)
+                if(manager == null && findManager != null)
                 {
                     manager = findManager.GetComponent<MozartManager>();
                 }
                 if(manager == null)
                 {
-                    Debug.LogError("MozartManager is not added to the scene, Mozart components will not function until one is found");
+                    Debug.LogError("MozartManager is not added to the scene, Mozart components will not function until one is found, please add the MozartManager prefab to your scene");
                 }
             }
             return manager;

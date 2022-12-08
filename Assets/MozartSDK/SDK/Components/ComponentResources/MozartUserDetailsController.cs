@@ -18,12 +18,8 @@
 
         private void OnEnable()
         {
-            GetManager().onLoggedInEvent += DetailsChanged;
-        }
-
-        private void OnDisable()
-        {
             GetManager().onLoggedInEvent -= DetailsChanged;
+            GetManager().onLoggedInEvent += DetailsChanged;
         }
 
         public virtual void DetailsChanged()
