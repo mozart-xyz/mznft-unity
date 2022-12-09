@@ -96,8 +96,8 @@
 
         IEnumerator GetLoginToken()
         {
-            var request = UnityWebRequest.Get(AUTH_URL_BASE + "/login?gameId=" + mozartSettings.GameIdentifier);
-
+            var request = UnityWebRequest.Get(AUTH_URL_BASE + "/v1/auth/login?gameId=" + mozartSettings.GameIdentifier);
+            Debug.Log("Hitting login:" + request.url);
             // Wait for the response and then get our data
             yield return request.SendWebRequest();
             var data = request.downloadHandler.text;
@@ -123,7 +123,7 @@
         IEnumerator CheckForAuthentication()
         {
             int tryCount = 0;
-            string oauthURL = AUTH_URL_BASE + "/login_status?oauthState=" + loginToken;
+            string oauthURL = AUTH_URL_BASE + "/v1/auth/login_status?oauthState=" + loginToken;
             mozartSettings.Log("OAUTH URL::" + oauthURL);
             mozartSettings.Log("Token:" + loginToken);
             while (state == LOGIN_STATE.WAITING_FOR_LOGIN)

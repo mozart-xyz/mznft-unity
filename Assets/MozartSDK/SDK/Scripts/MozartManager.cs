@@ -96,6 +96,7 @@
         {
             SessionToken = sessionToken;
             RequestUserData();
+            LoadStore();
             if (onLoggedInEvent != null) onLoggedInEvent.Invoke();
         }
 
@@ -109,7 +110,58 @@
             {
                 userData.extraData = response;
                 if (onUserChangedEvent != null) onUserChangedEvent();
+                PopulateInventory();
             });
+        }
+
+        public bool GetItemIsOwned(string itemTemplateId)
+        {
+            foreach (NFTItem item in inventoryItems)
+            {
+                if (item.itemTemplateId == itemTemplateId)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public bool GetItemIsOwnedByName(string itemName)
+        {
+            foreach (NFTItem item in inventoryItems)
+            {
+                if (item.name == itemName)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+
+        public NFTItem GetItemByItemName(string itemName)
+        {
+            foreach (NFTItem item in storeItems)
+            {
+                if (item.name == itemName)
+                {
+                    return item;
+                }
+            }
+            return null;
+        }
+
+
+        public NFTItem GetItemByItemTemplateId(string itemTemplateId)
+        {
+            foreach(NFTItem item in storeItems)
+            {
+                if(item.itemTemplateId == itemTemplateId)
+                {
+                    return item;
+                }
+            }
+            return null;
         }
 
         /// <summary>
@@ -127,9 +179,9 @@
         }
 
         /// <summary>
-        /// Request inventory from the server for the current app
+        /// Fills inventory from data on the user object passed down from the /me server call
         /// </summary>
-        public void LoadInventory()
+        private void PopulateInventory()
         {
             if (userData.extraData == null) return;
             inventoryItems.Clear();

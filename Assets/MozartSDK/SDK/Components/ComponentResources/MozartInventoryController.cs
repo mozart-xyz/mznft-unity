@@ -44,7 +44,7 @@
         {
             if (!GetManager().IsLoggedIn()) return;
             GetManager().onInventoryLoadedEvent += InventoryLoaded;
-            GetManager().LoadInventory();
+            InventoryLoaded();
         }
 
         /// <summary>
