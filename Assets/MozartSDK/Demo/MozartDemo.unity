@@ -1792,7 +1792,7 @@ PrefabInstance:
     - target: {fileID: 5921421776381616119, guid: 59e131d09b6454633b8b52110f38e1d2,
         type: 3}
       propertyPath: itemName
-      value: yellow_car
+      value: black_car
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59e131d09b6454633b8b52110f38e1d2, type: 3}

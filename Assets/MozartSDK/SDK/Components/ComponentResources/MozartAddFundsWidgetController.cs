@@ -25,22 +25,7 @@ using UnityEngine;
 
         public void AddFunds()
         {
-            string jwt = GetManager().SessionToken;
-            string gameId = GetManager().settings.GameIdentifier;
-            Application.OpenURL("https://mz-app-staging.onrender.com/" + gameId + "/" + jwt);
-            StartCoroutine(PollForFundsChange());
-        }
-
-        IEnumerator PollForFundsChange()
-        {
-            int startingBalance = GetManager().userData.extraData.balances[0].GetBalance();
-            int retryCount = 0;
-            while(startingBalance == GetManager().userData.extraData.balances[0].GetBalance() && retryCount < 50)
-            {
-                retryCount++;
-                yield return new WaitForSeconds(5f);
-                GetManager().RequestUserData();
-            }
+            GetManager().AddFunds();
         }
     }
 }

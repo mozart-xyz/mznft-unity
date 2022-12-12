@@ -210,6 +210,29 @@
                 if (onStoreLoadedEvent != null) onStoreLoadedEvent();
             });
         }
+
+        /// <summary>
+        /// Add funds calls on the AddFunds system to add more funds to the application
+        /// </summary>
+        public void AddFunds()
+        {
+            string jwt = SessionToken;
+            string gameId = settings.GameIdentifier;
+            Application.OpenURL("https://mz-app-staging.onrender.com/" + gameId + "/" + jwt);
+            StartCoroutine(PollForFundsChange());
+        }
+
+        IEnumerator PollForFundsChange()
+        {
+            int startingBalance = userData.extraData.balances[0].GetBalance();
+            int retryCount = 0;
+            while (startingBalance == userData.extraData.balances[0].GetBalance() && retryCount < 50)
+            {
+                retryCount++;
+                yield return new WaitForSeconds(5f);
+                RequestUserData();
+            }
+        }
     }
 
 }
