@@ -27,5 +27,13 @@ It is important that you **only create one MozartManager - it is a singleton**, 
 
 If you want to detect when Login is complete you can use code to monitor the IsLoggedIn boolean on MozartManager, or you can add a hook into the onLoginCompleteEvent delegate on MozartManager.
 
-
-![Configure Settings](/Assets/MozartSDK/docs/img/step0_configure_mozart_settings.png)
+ ![Configure Settings](/Assets/MozartSDK/docs/img/components.png)
+ ![Configure Settings](/Assets/MozartSDK/docs/img/step0_configure_mozart_settings.png)
+ ![Configure Settings](/Assets/MozartSDK/docs/img/step1_add_canvas.png)
+ ![Configure Settings](/Assets/MozartSDK/docs/img/step2_add_manager.png)
+ ![Configure Settings](/Assets/MozartSDK/docs/img/step3_add_login_widget.png)
+ ![Configure Settings](/Assets/MozartSDK/docs/img/step4_add_funds_widget.png)
+ ![Configure Settings](/Assets/MozartSDK/docs/img/step5_add_locked_item_selector.png)
+ ![Configure Settings](/Assets/MozartSDK/docs/img/step6_add_instant_buy_button.png)
+ ![Configure Settings](/Assets/MozartSDK/docs/img/step7_configure_buy_button.png)
+ ![Configure Settings](/Assets/MozartSDK/docs/img/step8_configure_buy_button.png)
