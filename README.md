@@ -26,3 +26,6 @@ It is important that you **only create one MozartManager - it is a singleton**, 
 **Inventory, Store, and Purchase will not work unless you are logged in**.  Drag a MozartLoginWidget and MozartManager into your scene and after you click Login you will be able to freely use these other components.
 
 If you want to detect when Login is complete you can use code to monitor the IsLoggedIn boolean on MozartManager, or you can add a hook into the onLoginCompleteEvent delegate on MozartManager.
+
+
+![Configure Settings](/Assets/MozartSDK/docs/img/step0_configure_mozart_settings.png)
