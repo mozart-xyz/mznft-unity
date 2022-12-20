@@ -1,5 +1,6 @@
 # mznft-unity
 Mozart NFT Unity SDK client code
+C# documentation is here: https://mozart-xyz.github.io/mznft-unity/
 
 # Setup
 Clone this repo to a directory on your disk
