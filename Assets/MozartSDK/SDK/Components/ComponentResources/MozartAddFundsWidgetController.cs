@@ -19,7 +19,7 @@ using UnityEngine;
         {
             if(GetManager().userData != null && GetManager().userData.extraData != null && GetManager().userData.extraData.balances != null && GetManager().userData.extraData.balances.Count > 0)
             {
-                fundsLabel.text = GetManager().userData.extraData.balances[0].balance;
+                fundsLabel.text = GetManager().userData.GetBalance().ToString();
             }
         }
 

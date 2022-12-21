@@ -9,6 +9,21 @@
     public class MozartUser
     {
 
+        public int GetBalance()
+        {
+            if (this.extraData != null && this.extraData.balances != null && this.extraData.balances.Count > 0)
+            {
+                foreach(V1FtsBalances balance in this.extraData.balances)
+                {
+                    if(balance.ftId == MozartManager.instance.settings.GameCurrencyIdentifier)
+                    {
+                        return balance.GetBalance();
+                    }
+                }
+            }
+            return 0;
+        }
+
         public MeResponse extraData;
         /*![string] NO DESCRIPTION, PLEASE ADD TO API.YAML*/
         public string id;

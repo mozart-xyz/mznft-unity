@@ -7,6 +7,7 @@
     {
         public string APIPublicKey;
         public string GameIdentifier;
+        public string GameCurrencyIdentifier;
         public bool logging = false;
         public string apiBaseUrl = "https://staging-api-ij1y.onrender.com";
         public void Log(string message)

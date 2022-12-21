@@ -14,7 +14,7 @@ GameObject:
   m_Layer: 0
   m_Name: MozartManager
   m_TagString: Untagged
-  m_Icon: {fileID: 2800000, guid: 81ed8c76d2bc4a4c95d092c98af4e58f, type: 3}
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fca632c22183439cabaa282a8d45c19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  settings: {fileID: 11400000, guid: 336a0cb3d9475473f9797fc7923003f8, type: 2}
   SessionToken: 
   userData:
     id: 
@@ -70,3 +71,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mozartSettings: {fileID: 11400000, guid: 336a0cb3d9475473f9797fc7923003f8, type: 2}
   manager: {fileID: 4536321990973479753}
+  logging: 0

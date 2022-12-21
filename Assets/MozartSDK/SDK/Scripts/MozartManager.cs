@@ -109,6 +109,7 @@
             webs.GetRequest<MeResponse>("/v1/client/me?gameId=" + webs.mozartSettings.GameIdentifier, (MeResponse response) =>
             {
                 userData.extraData = response;
+                if(settings.logging) Debug.Log(JsonUtility.ToJson(response));
                 if (onUserChangedEvent != null) onUserChangedEvent();
                 PopulateInventory();
             });
@@ -202,9 +203,12 @@
             webs.GetRequest<List<ForSaleFactoryNft>>("/v1/client/factory_items/for_sale?gameId=" + webs.mozartSettings.GameIdentifier, (List<ForSaleFactoryNft> forSale) =>
             {
                 storeItems.Clear();
+               
                 foreach (ForSaleFactoryNft nft in forSale)
                 {
+
                     NFTItem newItem = new NFTItem { name = nft.name, image = nft.imageUrl, price = nft.price, priceTokenName = nft.priceTokenName, priceTokenId = nft.priceTokenId, itemTemplateId=nft.factoryListingId };
+                    if (settings.logging) Debug.Log(JsonUtility.ToJson(newItem));
                     storeItems.Add(newItem);
                 }
                 if (onStoreLoadedEvent != null) onStoreLoadedEvent();
@@ -218,15 +222,15 @@
         {
             string jwt = SessionToken;
             string gameId = settings.GameIdentifier;
-            Application.OpenURL("https://mz-app-staging.onrender.com/" + gameId + "/" + jwt);
+            Application.OpenURL("https://mz-app-staging.onrender.com/" + gameId + "/" + settings.GameCurrencyIdentifier + "/" + jwt);
             StartCoroutine(PollForFundsChange());
         }
 
         IEnumerator PollForFundsChange()
         {
-            int startingBalance = userData.extraData.balances[0].GetBalance();
+            int startingBalance = userData.GetBalance();
             int retryCount = 0;
-            while (startingBalance == userData.extraData.balances[0].GetBalance() && retryCount < 50)
+            while (startingBalance == userData.GetBalance() && retryCount < 50)
             {
                 retryCount++;
                 yield return new WaitForSeconds(5f);

@@ -1,16 +1,22 @@
 ﻿namespace Mozart
 { 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+    /// <summary>
+    /// This class is a demo class that controls the demo UI
+    /// </summary>
 public class MozartSampleSelector : MozartBehaviorBase
 {
     public GameObject login;
     public GameObject inventory;
     public GameObject store;
+    public GameObject loginPanel;
 
-    public void LoginClicked()
+        private void Start()
+        {
+            GetManager().onLoggedInEvent += LoginCompleted;
+        }
+        public void LoginClicked()
     {
         login.SetActive(true);
         inventory.SetActive(false);
@@ -31,6 +37,11 @@ public class MozartSampleSelector : MozartBehaviorBase
         login.SetActive(false);
         inventory.SetActive(false);
         store.SetActive(true);
+    }
+
+    public void LoginCompleted()
+    {
+        loginPanel.SetActive(false);
     }
 }
 
