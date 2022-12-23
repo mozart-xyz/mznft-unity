@@ -9,7 +9,7 @@
         public string GameIdentifier;
         public string GameCurrencyIdentifier;
         public bool logging = false;
-        public string apiBaseUrl = "https://staging-api-ij1y.onrender.com";
+        public string apiBaseUrl = "https://testnet-api.mozart.xyz";
         public void Log(string message)
         {
             if (logging) Debug.Log(message);

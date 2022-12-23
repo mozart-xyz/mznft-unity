@@ -16,4 +16,4 @@ MonoBehaviour:
   GameIdentifier: LeQ7cWqedDp
   GameCurrencyIdentifier: Lzz8QsX6hho
   logging: 1
-  apiBaseUrl: https://staging-api-ij1y.onrender.com
+  apiBaseUrl: https://testnet-api.mozart.xyz
