@@ -36,11 +36,11 @@
 
     /// <summary>
     /// Turnkey OAUTH login button for Mozart.  It is best to drag and drop the
-    /// prefab to use this instead of using it directly. curl -H "Authorization: Bearer $token" https://staging-api-ij1y.onrender.com/v1/client/me?gameId=9mAc1yrUArR
+    /// prefab to use this instead of using it directly. curl -H "Authorization: Bearer $token" https://testnet-api.mozart.xyz/v1/client/me?gameId=9mAc1yrUArR
     /// </summary>
     public class MozartSDKLoginButton : MozartBehaviorBase
     {
-        private string AUTH_URL_BASE = "https://staging-api-ij1y.onrender.com/v1/auth";
+        private string AUTH_URL_BASE = "https://testnet-api.mozart.xyz/v1/auth";
         [SerializeField]
         private Button LoginButton;
         [SerializeField]
