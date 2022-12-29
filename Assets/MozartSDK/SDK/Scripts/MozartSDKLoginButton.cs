@@ -40,7 +40,7 @@
     /// </summary>
     public class MozartSDKLoginButton : MozartBehaviorBase
     {
-        private string AUTH_URL_BASE = "https://staging-api-ij1y.onrender.com/v1/auth";
+        private string AUTH_URL_BASE = "";
         [SerializeField]
         private Button LoginButton;
         [SerializeField]

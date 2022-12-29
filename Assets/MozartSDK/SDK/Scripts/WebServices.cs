@@ -12,7 +12,7 @@
 
     public class WebServices : MonoBehaviour
     {
-        public static string serverRoot = "https://staging-api-ij1y.onrender.com";
+        public static string serverRoot = "";
         public SettingsTemplate mozartSettings;
         public MozartManager manager;
         public bool logging = false;

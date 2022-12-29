@@ -2013,6 +2013,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1167302230}
     m_Modifications:
+    - target: {fileID: 2044876994212185224, guid: 6a140050c53be4941841868b23df5b50,
+        type: 3}
+      propertyPath: ItemTemplateID
+      value: 287jwtXLW32
+      objectReference: {fileID: 0}
     - target: {fileID: 2044876994212185225, guid: 6a140050c53be4941841868b23df5b50,
         type: 3}
       propertyPath: m_Colors.m_HighlightedColor.b

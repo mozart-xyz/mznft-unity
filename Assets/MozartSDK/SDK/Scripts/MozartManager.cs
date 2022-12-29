@@ -222,7 +222,7 @@
         {
             string jwt = SessionToken;
             string gameId = settings.GameIdentifier;
-            Application.OpenURL("https://staging-dashboard-4we0.onrender.com/checkout?gameId=" + gameId + "&ftId=" + settings.GameCurrencyIdentifier + "&jwt=" + jwt);
+            Application.OpenURL("https://testnet-dashboard.mozart.xyz/checkout?gameId=" + gameId + "&ftId=" + settings.GameCurrencyIdentifier + "&jwt=" + jwt);
             StartCoroutine(PollForFundsChange());
         }
 
