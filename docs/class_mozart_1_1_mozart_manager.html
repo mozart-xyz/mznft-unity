@@ -111,6 +111,9 @@ Inheritance diagram for Mozart.MozartManager:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a704e83f48971a4618b66390672883a9c"><td class="memItemLeft" align="right" valign="top"><a id="a704e83f48971a4618b66390672883a9c" name="a704e83f48971a4618b66390672883a9c"></a>
+delegate void&#160;</td><td class="memItemRight" valign="bottom"><b>ON_USER_CHANGE</b> ()</td></tr>
+<tr class="separator:a704e83f48971a4618b66390672883a9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d9b5001a231e5636cf905d915fbf17a"><td class="memItemLeft" align="right" valign="top"><a id="a0d9b5001a231e5636cf905d915fbf17a" name="a0d9b5001a231e5636cf905d915fbf17a"></a>
 delegate void&#160;</td><td class="memItemRight" valign="bottom"><b>ON_LOGIN</b> ()</td></tr>
 <tr class="separator:a0d9b5001a231e5636cf905d915fbf17a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -129,29 +132,45 @@ delegate void&#160;</td><td class="memItemRight" valign="bottom"><b>ON_PURCHASE_
 <tr class="memitem:a31a80e17740b5b3d0a5cb5084985a3d8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mozart_1_1_mozart_manager.html#a31a80e17740b5b3d0a5cb5084985a3d8">SetSessionToken</a> (string sessionToken)</td></tr>
 <tr class="memdesc:a31a80e17740b5b3d0a5cb5084985a3d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the session token for the user after the login is completed. The <a class="el" href="class_mozart_1_1_mozart_s_d_k_login_button.html" title="Turnkey OAUTH login button for Mozart. It is best to drag and drop the prefab to use this instead of ...">MozartSDKLoginButton</a> has logic to automatically call this.   <a href="class_mozart_1_1_mozart_manager.html#a31a80e17740b5b3d0a5cb5084985a3d8">More...</a><br /></td></tr>
 <tr class="separator:a31a80e17740b5b3d0a5cb5084985a3d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a53dc54f8ad0fe3f8dffb75f85dd1ea07"><td class="memItemLeft" align="right" valign="top"><a id="a53dc54f8ad0fe3f8dffb75f85dd1ea07" name="a53dc54f8ad0fe3f8dffb75f85dd1ea07"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>SetUserData</b> ()</td></tr>
-<tr class="separator:a53dc54f8ad0fe3f8dffb75f85dd1ea07"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aecb0d2722c56659aab65093c88c18872"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mozart_1_1_mozart_manager.html#aecb0d2722c56659aab65093c88c18872">BuyItem</a> (<a class="el" href="class_mozart_1_1_n_f_t_item.html">NFTItem</a> item)</td></tr>
-<tr class="memdesc:aecb0d2722c56659aab65093c88c18872"><td class="mdescLeft">&#160;</td><td class="mdescRight">Buy a specific item from the store and give it to the user   <a href="class_mozart_1_1_mozart_manager.html#aecb0d2722c56659aab65093c88c18872">More...</a><br /></td></tr>
-<tr class="separator:aecb0d2722c56659aab65093c88c18872"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a34e82bfa92d65e8a0a50bdec9be0be"><td class="memItemLeft" align="right" valign="top"><a id="a9a34e82bfa92d65e8a0a50bdec9be0be" name="a9a34e82bfa92d65e8a0a50bdec9be0be"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>LoadInventory</b> ()</td></tr>
-<tr class="memdesc:a9a34e82bfa92d65e8a0a50bdec9be0be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Request inventory from the server for the current app  <br /></td></tr>
-<tr class="separator:a9a34e82bfa92d65e8a0a50bdec9be0be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60a62de248d922c50999b821e33455e6"><td class="memItemLeft" align="right" valign="top"><a id="a60a62de248d922c50999b821e33455e6" name="a60a62de248d922c50999b821e33455e6"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>RequestUserData</b> ()</td></tr>
+<tr class="memdesc:a60a62de248d922c50999b821e33455e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Requests additional user data like balances, nfts, and user info The <a class="el" href="class_mozart_1_1_mozart_s_d_k_login_button.html" title="Turnkey OAUTH login button for Mozart. It is best to drag and drop the prefab to use this instead of ...">MozartSDKLoginButton</a> has logic to automatically call this.  <br /></td></tr>
+<tr class="separator:a60a62de248d922c50999b821e33455e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8df8de8ff2e9ccd7194e043867913803"><td class="memItemLeft" align="right" valign="top"><a id="a8df8de8ff2e9ccd7194e043867913803" name="a8df8de8ff2e9ccd7194e043867913803"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>GetItemIsOwned</b> (string itemTemplateId)</td></tr>
+<tr class="separator:a8df8de8ff2e9ccd7194e043867913803"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c4e922375e983d6792f0891a92c6a60"><td class="memItemLeft" align="right" valign="top"><a id="a2c4e922375e983d6792f0891a92c6a60" name="a2c4e922375e983d6792f0891a92c6a60"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>GetItemIsOwnedByName</b> (string itemName)</td></tr>
+<tr class="separator:a2c4e922375e983d6792f0891a92c6a60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a2182911bf532945cb8a48f31602719"><td class="memItemLeft" align="right" valign="top"><a id="a7a2182911bf532945cb8a48f31602719" name="a7a2182911bf532945cb8a48f31602719"></a>
+<a class="el" href="class_mozart_1_1_n_f_t_item.html">NFTItem</a>&#160;</td><td class="memItemRight" valign="bottom"><b>GetItemByItemName</b> (string itemName)</td></tr>
+<tr class="separator:a7a2182911bf532945cb8a48f31602719"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0499730cf9dca3283b6a819094f95bf9"><td class="memItemLeft" align="right" valign="top"><a id="a0499730cf9dca3283b6a819094f95bf9" name="a0499730cf9dca3283b6a819094f95bf9"></a>
+<a class="el" href="class_mozart_1_1_n_f_t_item.html">NFTItem</a>&#160;</td><td class="memItemRight" valign="bottom"><b>GetItemByItemTemplateId</b> (string itemTemplateId)</td></tr>
+<tr class="separator:a0499730cf9dca3283b6a819094f95bf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83c2c178fd7c08351e5ad4e56ab43c5a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mozart_1_1_mozart_manager.html#a83c2c178fd7c08351e5ad4e56ab43c5a">BuyItem</a> (string ItemTemplateID)</td></tr>
+<tr class="memdesc:a83c2c178fd7c08351e5ad4e56ab43c5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Buy a specific item from the store and give it to the user   <a href="class_mozart_1_1_mozart_manager.html#a83c2c178fd7c08351e5ad4e56ab43c5a">More...</a><br /></td></tr>
+<tr class="separator:a83c2c178fd7c08351e5ad4e56ab43c5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8cad9824f30047d535b75339c34a97f6"><td class="memItemLeft" align="right" valign="top"><a id="a8cad9824f30047d535b75339c34a97f6" name="a8cad9824f30047d535b75339c34a97f6"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>LoadStore</b> ()</td></tr>
 <tr class="memdesc:a8cad9824f30047d535b75339c34a97f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load the store for the current app  <br /></td></tr>
 <tr class="separator:a8cad9824f30047d535b75339c34a97f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0b43a6d2063e0117c7aa94acef0d576"><td class="memItemLeft" align="right" valign="top"><a id="ad0b43a6d2063e0117c7aa94acef0d576" name="ad0b43a6d2063e0117c7aa94acef0d576"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>AddFunds</b> ()</td></tr>
+<tr class="memdesc:ad0b43a6d2063e0117c7aa94acef0d576"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add funds calls on the AddFunds system to add more funds to the application  <br /></td></tr>
+<tr class="separator:ad0b43a6d2063e0117c7aa94acef0d576"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
+<tr class="memitem:abb92d5b204d26d117d8e345ce86602c0"><td class="memItemLeft" align="right" valign="top"><a id="abb92d5b204d26d117d8e345ce86602c0" name="abb92d5b204d26d117d8e345ce86602c0"></a>
+<a class="el" href="class_mozart_1_1_settings_template.html">SettingsTemplate</a>&#160;</td><td class="memItemRight" valign="bottom"><b>settings</b></td></tr>
+<tr class="separator:abb92d5b204d26d117d8e345ce86602c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa1ed1dd75b2728dc341315891bc765cb"><td class="memItemLeft" align="right" valign="top"><a id="aa1ed1dd75b2728dc341315891bc765cb" name="aa1ed1dd75b2728dc341315891bc765cb"></a>
-List&lt; <a class="el" href="class_mozart_1_1_n_f_t_item.html">NFTItem</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>storeItems</b></td></tr>
+List&lt; <a class="el" href="class_mozart_1_1_n_f_t_item.html">NFTItem</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>storeItems</b> = new List&lt;<a class="el" href="class_mozart_1_1_n_f_t_item.html">NFTItem</a>&gt;()</td></tr>
 <tr class="memdesc:aa1ed1dd75b2728dc341315891bc765cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is a list of items loaded from the store for this app  <br /></td></tr>
 <tr class="separator:aa1ed1dd75b2728dc341315891bc765cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6be52a665fb56d2b1aedcdcfe9ad63b6"><td class="memItemLeft" align="right" valign="top"><a id="a6be52a665fb56d2b1aedcdcfe9ad63b6" name="a6be52a665fb56d2b1aedcdcfe9ad63b6"></a>
-List&lt; <a class="el" href="class_mozart_1_1_n_f_t_item.html">NFTItem</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>inventoryItems</b></td></tr>
+List&lt; <a class="el" href="class_mozart_1_1_n_f_t_item.html">NFTItem</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>inventoryItems</b> = new List&lt;<a class="el" href="class_mozart_1_1_n_f_t_item.html">NFTItem</a>&gt;()</td></tr>
 <tr class="memdesc:a6be52a665fb56d2b1aedcdcfe9ad63b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is a list of items the user actually has in their inventory for this app  <br /></td></tr>
 <tr class="separator:a6be52a665fb56d2b1aedcdcfe9ad63b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c588fb631294cef63ce81f5a96cafc6"><td class="memItemLeft" align="right" valign="top"><a id="a0c588fb631294cef63ce81f5a96cafc6" name="a0c588fb631294cef63ce81f5a96cafc6"></a>
@@ -166,6 +185,9 @@ string&#160;</td><td class="memItemRight" valign="bottom"><b>SessionToken</b> = 
 <a class="el" href="class_mozart_1_1_web_services.html">WebServices</a>&#160;</td><td class="memItemRight" valign="bottom"><b>webs</b></td></tr>
 <tr class="memdesc:a3efe89c1cbeb0150cce45b73257b0732"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the web services helper for making web services calls in a generic way  <br /></td></tr>
 <tr class="separator:a3efe89c1cbeb0150cce45b73257b0732"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af947615b5c1445624890e93d96d9ac1f"><td class="memItemLeft" align="right" valign="top"><a id="af947615b5c1445624890e93d96d9ac1f" name="af947615b5c1445624890e93d96d9ac1f"></a>
+ON_USER_CHANGE&#160;</td><td class="memItemRight" valign="bottom"><b>onUserChangedEvent</b></td></tr>
+<tr class="separator:af947615b5c1445624890e93d96d9ac1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a63f415e9ddcbcce7bdf3b49f922a0f1c"><td class="memItemLeft" align="right" valign="top"><a id="a63f415e9ddcbcce7bdf3b49f922a0f1c" name="a63f415e9ddcbcce7bdf3b49f922a0f1c"></a>
 ON_LOGIN&#160;</td><td class="memItemRight" valign="bottom"><b>onLoggedInEvent</b></td></tr>
 <tr class="memdesc:a63f415e9ddcbcce7bdf3b49f922a0f1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">This event will fire when the user logs in, there is no data passed. If you want the user object read it from <a class="el" href="class_mozart_1_1_mozart_manager.html#a73c2b9d983f3b4c9b1400834c051039c" title="This is user data specific to this user">MozartManager.userData</a>.  <br /></td></tr>
@@ -193,8 +215,8 @@ static <a class="el" href="class_mozart_1_1_mozart_manager.html">MozartManager</
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >The <a class="el" href="class_mozart_1_1_mozart_manager.html" title="The MozartManager is the brain of the entire Mozart system. You should create one of these when your ...">MozartManager</a> is the brain of the entire <a class="el" href="namespace_mozart.html">Mozart</a> system. You should create one of these when your application starts and keep it alive for the duration of the application with DoNotDestroy. This will happen automatically if you use the Prefab.  </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="aecb0d2722c56659aab65093c88c18872" name="aecb0d2722c56659aab65093c88c18872"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aecb0d2722c56659aab65093c88c18872">&#9670;&#160;</a></span>BuyItem()</h2>
+<a id="a83c2c178fd7c08351e5ad4e56ab43c5a" name="a83c2c178fd7c08351e5ad4e56ab43c5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83c2c178fd7c08351e5ad4e56ab43c5a">&#9670;&#160;</a></span>BuyItem()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -202,8 +224,8 @@ static <a class="el" href="class_mozart_1_1_mozart_manager.html">MozartManager</
         <tr>
           <td class="memname">void Mozart.MozartManager.BuyItem </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_mozart_1_1_n_f_t_item.html">NFTItem</a>&#160;</td>
-          <td class="paramname"><em>item</em></td><td>)</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>ItemTemplateID</em></td><td>)</td>
           <td></td>
         </tr>
       </table>

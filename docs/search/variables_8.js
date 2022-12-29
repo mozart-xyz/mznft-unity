@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['timebetweenretry_0',['timeBetweenRetry',['../class_mozart_1_1_mozart_s_d_k_login_button.html#a61b212d8a87b731c9e5314510169dfbf',1,'Mozart::MozartSDKLoginButton']]]
+  ['walletaddress_0',['walletAddress',['../class_mozart_1_1_mozart_user.html#a25e929ecb2d74149d797dfc65470836a',1,'Mozart::MozartUser']]],
+  ['webs_1',['webs',['../class_mozart_1_1_mozart_manager.html#a3efe89c1cbeb0150cce45b73257b0732',1,'Mozart::MozartManager']]]
 ];

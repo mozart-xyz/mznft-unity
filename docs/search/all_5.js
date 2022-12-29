@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['id_0',['id',['../class_mozart_1_1_mozart_user.html#a23f6195ce28d4831b9a086c767a27a08',1,'Mozart::MozartUser']]],
-  ['image_1',['image',['../class_mozart_1_1_n_f_t_item.html#a11009beae9f7fab48c9f0836b5c32780',1,'Mozart::NFTItem']]],
-  ['instance_2',['instance',['../class_mozart_1_1_mozart_manager.html#a5ad546a39751fa60cc38be48d935f39c',1,'Mozart::MozartManager']]],
-  ['inventoryitems_3',['inventoryItems',['../class_mozart_1_1_mozart_manager.html#a6be52a665fb56d2b1aedcdcfe9ad63b6',1,'Mozart::MozartManager']]],
-  ['isloggedin_4',['IsLoggedIn',['../class_mozart_1_1_mozart_manager.html#ac0ee9bc2aa6aff630d7ea8c31263467a',1,'Mozart::MozartManager']]]
+  ['game_0',['Game',['../class_mozart_1_1_game.html',1,'Mozart']]],
+  ['getmanager_1',['GetManager',['../class_mozart_1_1_mozart_behavior_base.html#a1415b7b3344a980e61c5125aa714b995',1,'Mozart::MozartBehaviorBase']]],
+  ['gridcellclickevent_2',['GridCellClickEvent',['../class_mozart_1_1_mozart_inventory_controller_1_1_grid_cell_click_event.html',1,'Mozart::MozartInventoryController']]]
 ];

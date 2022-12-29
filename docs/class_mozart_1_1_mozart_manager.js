@@ -1,9 +1,10 @@
 var class_mozart_1_1_mozart_manager =
 [
-    [ "BuyItem", "class_mozart_1_1_mozart_manager.html#aecb0d2722c56659aab65093c88c18872", null ],
+    [ "AddFunds", "class_mozart_1_1_mozart_manager.html#ad0b43a6d2063e0117c7aa94acef0d576", null ],
+    [ "BuyItem", "class_mozart_1_1_mozart_manager.html#a83c2c178fd7c08351e5ad4e56ab43c5a", null ],
     [ "IsLoggedIn", "class_mozart_1_1_mozart_manager.html#ac0ee9bc2aa6aff630d7ea8c31263467a", null ],
-    [ "LoadInventory", "class_mozart_1_1_mozart_manager.html#a9a34e82bfa92d65e8a0a50bdec9be0be", null ],
     [ "LoadStore", "class_mozart_1_1_mozart_manager.html#a8cad9824f30047d535b75339c34a97f6", null ],
+    [ "RequestUserData", "class_mozart_1_1_mozart_manager.html#a60a62de248d922c50999b821e33455e6", null ],
     [ "SetSessionToken", "class_mozart_1_1_mozart_manager.html#a31a80e17740b5b3d0a5cb5084985a3d8", null ],
     [ "inventoryItems", "class_mozart_1_1_mozart_manager.html#a6be52a665fb56d2b1aedcdcfe9ad63b6", null ],
     [ "onInventoryLoadedEvent", "class_mozart_1_1_mozart_manager.html#a2d7ee126009e92cc4fe97b8e843551ae", null ],

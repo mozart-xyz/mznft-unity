@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['isloggedin_0',['IsLoggedIn',['../class_mozart_1_1_mozart_manager.html#ac0ee9bc2aa6aff630d7ea8c31263467a',1,'Mozart::MozartManager']]]
+  ['getmanager_0',['GetManager',['../class_mozart_1_1_mozart_behavior_base.html#a1415b7b3344a980e61c5125aa714b995',1,'Mozart::MozartBehaviorBase']]]
 ];
