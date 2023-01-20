@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MozartSettings
   m_EditorClassIdentifier: 
   APIPublicKey: eedf395b-d558-4714-9bb5-bfd9f9094ccd
-  GameIdentifier: B98Fkb6bk7o
-  GameCurrencyIdentifier: JFwZnxoEceu
+  GameIdentifier: '@mzkart'
+  GameCurrencyIdentifier: '@mzkart.__default_ft__'
   logging: 1
   apiBaseUrl: https://testnet-api.mozart.xyz

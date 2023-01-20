@@ -11,11 +11,12 @@
 
         public int GetBalance()
         {
+            string currency = MozartManager.instance.settings.GameCurrencyIdentifier.Replace("@", "");
             if (this.extraData != null && this.extraData.balances != null && this.extraData.balances.Count > 0)
             {
                 foreach(V1FtsBalances balance in this.extraData.balances)
                 {
-                    if(balance.ftId == MozartManager.instance.settings.GameCurrencyIdentifier)
+                    if(currency.Contains(balance.name))
                     {
                         return balance.GetBalance();
                     }
