@@ -12,7 +12,7 @@
     /// the duration of the application with DoNotDestroy.  This will happen
     /// automatically if you use the Prefab.
     /// </summary>
-    public class MozartManager : MonoBehaviour
+    public partial class MozartManager : MonoBehaviour
     {
         /// <summary>
         /// Singleton access for the manager, used as a convenience, not by default.
@@ -171,8 +171,8 @@
         /// <param name="item"></param>
         public void BuyItem(string ItemTemplateID)
         {
-            string postData = "{\"factoryListingId\":\"" + ItemTemplateID + "\"}";
-            webs.PostRequest<BuyResponse>("/v1/client/factory_items/buy", postData, (BuyResponse response) =>
+            string postData = "{\"nftTemplateListingId\":\"" + ItemTemplateID + "\"}";
+            webs.PostRequest<BuyResponse>("/v1/client/template_items/buy", postData, (BuyResponse response) =>
             {
                 RequestUserData();
                 if (onPurchaseCompleteEvent != null) onPurchaseCompleteEvent();
@@ -191,7 +191,7 @@
                 NFTItem newItem = new NFTItem { name = nft.name, image = nft.imageUrl, description = nft.description };
                 inventoryItems.Add(newItem);
             }
-            if (onInventoryLoadedEvent != null) onInventoryLoadedEvent();
+            onInventoryLoadedEvent?.Invoke();
         }
 
         /// <summary>
@@ -200,18 +200,18 @@
         public void LoadStore()
         {
             // /v1/client/factory_items/for_sale
-            webs.GetRequest<List<ForSaleFactoryNft>>("/v1/client/factory_items/for_sale?gameId=" + webs.mozartSettings.GameIdentifier, (List<ForSaleFactoryNft> forSale) =>
+            webs.GetRequest<List<ForSaleFactoryNft>>("/v1/client/template_items/for_sale?gameId=" + webs.mozartSettings.GameIdentifier, (List<ForSaleFactoryNft> forSale) =>
             {
                 storeItems.Clear();
                
                 foreach (ForSaleFactoryNft nft in forSale)
                 {
 
-                    NFTItem newItem = new NFTItem { name = nft.name, image = nft.imageUrl, price = nft.price, priceTokenName = nft.priceTokenName, priceTokenId = nft.priceTokenId, itemTemplateId=nft.factoryListingId };
+                    NFTItem newItem = new NFTItem { name = nft.name, image = nft.imageUrl, price = nft.price, priceTokenName = nft.priceTokenName, priceTokenId = nft.priceTokenId, itemTemplateId=nft.nftTemplateListingId};
                     if (settings.logging) Debug.Log(JsonUtility.ToJson(newItem));
                     storeItems.Add(newItem);
                 }
-                if (onStoreLoadedEvent != null) onStoreLoadedEvent();
+                onStoreLoadedEvent?.Invoke();
             });
         }
 
@@ -222,7 +222,7 @@
         {
             string jwt = SessionToken;
             string gameId = settings.GameIdentifier;
-            Application.OpenURL("https://testnet-dashboard.mozart.xyz/checkout?gameId=" + gameId + "&ftId=" + settings.GameCurrencyIdentifier + "&jwt=" + jwt);
+            Application.OpenURL(settings.dashboardUrl + "/checkout?gameId=" + gameId + "&ftId=" + settings.GameCurrencyIdentifier + "&jwt=" + jwt);
             StartCoroutine(PollForFundsChange());
         }
 

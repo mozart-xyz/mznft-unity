@@ -7,10 +7,12 @@ public class ForSaleFactoryNft
 {
 
 	/*[string] NO DESCRIPTION, PLEASE ADD TO API.YAML*/
-	public string factoryListingId;
+	public string nftTemplateListingId;
 
-	/*[string] NO DESCRIPTION, PLEASE ADD TO API.YAML*/
-	public string name;
+    public string nftTemplateListingKey;
+
+        /*[string] NO DESCRIPTION, PLEASE ADD TO API.YAML*/
+    public string name;
 
 	/*[string] NO DESCRIPTION, PLEASE ADD TO API.YAML*/
 	public string imageUrl;
@@ -18,8 +20,10 @@ public class ForSaleFactoryNft
 	/*[string] The token type of the listed price*/
 	public string priceTokenId;
 
-	/*[string] NO DESCRIPTION, PLEASE ADD TO API.YAML*/
-	public string priceTokenName;
+    public string priceTokenKey;
+
+        /*[string] NO DESCRIPTION, PLEASE ADD TO API.YAML*/
+    public string priceTokenName;
 
 	/*[string] NO DESCRIPTION, PLEASE ADD TO API.YAML*/
 	public string price;

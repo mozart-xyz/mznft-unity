@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641192, b: 0.57481617, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1798,12 +1798,12 @@ PrefabInstance:
     - target: {fileID: 2777254562921949905, guid: 59e131d09b6454633b8b52110f38e1d2,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 128
+      value: 347.90112
       objectReference: {fileID: 0}
     - target: {fileID: 2777254562921949905, guid: 59e131d09b6454633b8b52110f38e1d2,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 128
+      value: 303.08047
       objectReference: {fileID: 0}
     - target: {fileID: 2777254562921949905, guid: 59e131d09b6454633b8b52110f38e1d2,
         type: 3}
@@ -1848,7 +1848,7 @@ PrefabInstance:
     - target: {fileID: 2777254562921949905, guid: 59e131d09b6454633b8b52110f38e1d2,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -230
+      value: -183
       objectReference: {fileID: 0}
     - target: {fileID: 2777254562921949905, guid: 59e131d09b6454633b8b52110f38e1d2,
         type: 3}
@@ -1868,7 +1868,7 @@ PrefabInstance:
     - target: {fileID: 5921421776381616119, guid: 59e131d09b6454633b8b52110f38e1d2,
         type: 3}
       propertyPath: itemName
-      value: Car_Yellow
+      value: red_car
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59e131d09b6454633b8b52110f38e1d2, type: 3}
@@ -2016,7 +2016,7 @@ PrefabInstance:
     - target: {fileID: 2044876994212185224, guid: 6a140050c53be4941841868b23df5b50,
         type: 3}
       propertyPath: ItemTemplateID
-      value: 287jwtXLW32
+      value: '@mzkart.default_collection.red_car'
       objectReference: {fileID: 0}
     - target: {fileID: 2044876994212185225, guid: 6a140050c53be4941841868b23df5b50,
         type: 3}

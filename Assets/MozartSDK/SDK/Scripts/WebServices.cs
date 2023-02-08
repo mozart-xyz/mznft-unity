@@ -75,7 +75,7 @@
             else
             {
                 string output = www.downloadHandler.text;
-                if(logging) mozartSettings.Log(www.url + ":::" + output);
+                mozartSettings.Log(www.url + ":::" + output);
                 T vo = (T)Activator.CreateInstance(typeof(T));
                 vo = JsonConvert.DeserializeObject<T>(output,
                 new JsonSerializerSettings

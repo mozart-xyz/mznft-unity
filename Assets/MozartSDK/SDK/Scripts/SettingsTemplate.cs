@@ -9,6 +9,7 @@
         public string GameIdentifier;
         public string GameCurrencyIdentifier;
         public bool logging = false;
+        public string dashboardUrl = "https://staging-dashboard-4we0.onrender.com";
         public string apiBaseUrl = "https://staging-api-ij1y.onrender.com";
         public void Log(string message)
         {

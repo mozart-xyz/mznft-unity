@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   APIPublicKey: eedf395b-d558-4714-9bb5-bfd9f9094ccd
   GameIdentifier: '@mzkart'
-  GameCurrencyIdentifier: '@mzkart.__default_ft__'
+  GameCurrencyIdentifier: '@mzkart.default_token'
   logging: 1
-  apiBaseUrl: https://testnet-api.mozart.xyz
+  dashboardUrl: https://staging-dashboard-4we0.onrender.com
+  apiBaseUrl: https://staging-api-ij1y.onrender.com
