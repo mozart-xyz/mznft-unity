@@ -7,7 +7,7 @@ public class ForSaleFactoryNft
 {
 
 	/*[string] NO DESCRIPTION, PLEASE ADD TO API.YAML*/
-	public string factoryListingId;
+	public string nftTemplateListingId;
 
 	/*[string] NO DESCRIPTION, PLEASE ADD TO API.YAML*/
 	public string name;
