@@ -1,5 +1,6 @@
 ﻿namespace Mozart
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections;
     using System.Collections.Generic;
@@ -14,6 +15,10 @@
     /// </summary>
     public class MozartManager : MonoBehaviour
     {
+        public MeResponse meResponse;
+
+        public string Response;
+        public Root root;
         /// <summary>
         /// Singleton access for the manager, used as a convenience, not by default.
         /// By default you can extend MozartBehavior for your own classes and they will find the manager.
@@ -106,10 +111,14 @@
         /// </summary>
         public void RequestUserData()
         {
-            webs.GetRequest<MeResponse>("/v1/client/me?gameId=" + webs.mozartSettings.GameIdentifier, (MeResponse response) =>
+            webs.GetRequest<object>("/v1/client/me?gameId=" + webs.mozartSettings.GameIdentifier, (object response) =>
             {
-                userData.extraData = response;
-                if(settings.logging) Debug.Log(JsonUtility.ToJson(response));
+                Response = response.ToString();
+                Debug.LogError(response);
+                root= JsonConvert.DeserializeObject<Root>(response.ToString());
+                meResponse= new MeResponse(root.user, root.nfts, root.balances);
+                userData.extraData = new MeResponse(root.user, root.nfts,  root.balances);
+                if (settings.logging) Debug.Log(JsonUtility.ToJson(response));
                 if (onUserChangedEvent != null) onUserChangedEvent();
                 PopulateInventory();
             });
@@ -171,9 +180,10 @@
         /// <param name="item"></param>
         public void BuyItem(string ItemTemplateID)
         {
-            string postData = "{\"factoryListingId\":\"" + ItemTemplateID + "\"}";
-            webs.PostRequest<BuyResponse>("/v1/client/factory_items/buy", postData, (BuyResponse response) =>
-            {
+            Debug.LogError(ItemTemplateID);
+            string postData = "{\"nftTemplateListingId\":\"" + ItemTemplateID + "\"}";
+            webs.PostRequest<BuyResponse>("/v1/client/template_items/buy", postData, (BuyResponse response) =>
+            {  
                 RequestUserData();
                 if (onPurchaseCompleteEvent != null) onPurchaseCompleteEvent();
             });
@@ -200,14 +210,14 @@
         public void LoadStore()
         {
             // /v1/client/factory_items/for_sale
-            webs.GetRequest<List<ForSaleFactoryNft>>("/v1/client/factory_items/for_sale?gameId=" + webs.mozartSettings.GameIdentifier, (List<ForSaleFactoryNft> forSale) =>
+            webs.GetRequest<List<ForSaleFactoryNft>>("/v1/client/template_items/for_sale?gameId=" + webs.mozartSettings.GameIdentifier, (List<ForSaleFactoryNft> forSale) =>
             {
                 storeItems.Clear();
                
                 foreach (ForSaleFactoryNft nft in forSale)
                 {
-
-                    NFTItem newItem = new NFTItem { name = nft.name, image = nft.imageUrl, price = nft.price, priceTokenName = nft.priceTokenName, priceTokenId = nft.priceTokenId, itemTemplateId=nft.factoryListingId };
+                  
+                    NFTItem newItem = new NFTItem { name = nft.name, image = nft.imageUrl, price = nft.price, priceTokenName = nft.priceTokenName, priceTokenId = nft.priceTokenId, itemTemplateId=nft.nftTemplateListingId };
                     if (settings.logging) Debug.Log(JsonUtility.ToJson(newItem));
                     storeItems.Add(newItem);
                 }
